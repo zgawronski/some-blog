@@ -1,9 +1,11 @@
-import React from 'react';
+/* eslint-disable react/prefer-stateless-function */
+import React, { useEffect, setState } from 'react';
 import styled, { css } from 'styled-components';
 import Button from 'styledHelpers/Button';
 import ButtonIcon from 'styledHelpers/ButtonIcon';
 import { Wrapper } from 'styledHelpers/Components';
 import Colors from 'styledHelpers/Colors';
+
 
 const StyledWrapper = styled(Wrapper)`
   width: 380px;
@@ -40,18 +42,31 @@ const InnerWrapper = styled.div`
 
 const DateInfo = styled.p``;
 
-const Card = () => (
-  <StyledWrapper>
-    <InnerWrapper activeColor>
-      <h2>note</h2>
-      <DateInfo> date</DateInfo>
-      <ButtonIcon className='favButton' />
-    </InnerWrapper>
-    <InnerWrapper flex>
-      <p>lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur</p>
-      <Button secondary>remove</Button>
-    </InnerWrapper>
-  </StyledWrapper>
-);
+class Card extends React.Component {
+  render(){
+    const [data, setData] = setState(null);
+    useEffect(() => {
+      // eslint-disable-next-line no-undef
+      fetch('https://jsonplaceholder.typicode.com/users')
+        .then((response) => response.json())
+        .then((json) => setData(json.users))
+    }, []);
+
+    return (
+    <StyledWrapper>
+      <InnerWrapper activeColor>
+        <h2>{data[1].name}</h2>
+        <DateInfo>date</DateInfo>
+        <ButtonIcon className='favButton' />
+      </InnerWrapper>
+      <InnerWrapper flex>
+        <p>{data[1].body}</p>
+        <Button secondary>remove</Button>
+      </InnerWrapper>
+    </StyledWrapper>
+    );
+  }
+}
+
 
 export default Card;

@@ -42,33 +42,38 @@ const LogoutButton = styled.div`
   margin-bottom: 5vh;
 `;
 
-const Sidebar = () => (
-  <BarWrapper>
-    <p className='imgP'>Some Blog</p>
-    <img className='logo' src='./media/logo.png' alt='#' />
-    <StyledLinksList>
-      <li>
-        <NavLink to='/' activeClass='active'>
-          <ButtonIcon />
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to='/' activeClass='active'>
-          <ButtonIcon />
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to='/' activeClass='active'>
-          <ButtonIcon />
-        </NavLink>
-      </li>
-    </StyledLinksList>
-    <LogoutButton>
-      <NavLink to='/logout' activeClass='active'>
-        <ButtonIcon />
-      </NavLink>
-    </LogoutButton>
-  </BarWrapper>
-);
+// eslint-disable-next-line react/prefer-stateless-function
+class Sidebar extends React.Component {
+  render(){
+      return (
+      <BarWrapper>
+        <p className='imgP'>Some Blog</p>
+        <img className='logo' src='./media/logo.png' alt='#' />
+        <StyledLinksList>
+          <li>
+            <NavLink to='/' activeClass='active'>
+              <ButtonIcon />
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/' activeClass='active'>
+              <ButtonIcon />
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/' activeClass='active'>
+              <ButtonIcon />
+            </NavLink>
+          </li>
+        </StyledLinksList>
+        <LogoutButton>
+          <NavLink to='/logout' activeClass='active'>
+            <ButtonIcon />
+          </NavLink>
+        </LogoutButton>
+      </BarWrapper>
+    );
+  }
+}
 
 export default Sidebar;

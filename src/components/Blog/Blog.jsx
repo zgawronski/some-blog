@@ -27,22 +27,28 @@ const HeaderDiv = styled.div`
 
 `;
 
-const Blog = () => (
-    <HeadWrapper>
-    <HeaderDiv>
-        <Input search placeholder='search' />
-        <h2>Some Blog </h2>
-        <p>6 cards</p>
-    </HeaderDiv>
-    <BlogDiv>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-    </BlogDiv>
-    </HeadWrapper>
-);
+// eslint-disable-next-line react/prefer-stateless-function
+class Blog extends React.Component {
+    render(){
+
+        return (
+        <HeadWrapper>
+        <HeaderDiv>
+            <Input search placeholder='search' />
+            <h2>Some Blog </h2>
+            <p>6 cards</p>
+        </HeaderDiv>
+        <BlogDiv>
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+        </BlogDiv>
+        </HeadWrapper>
+        );
+    };
+}
 
 export default Blog;
