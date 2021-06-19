@@ -8,7 +8,6 @@ const Button = styled.button`
   height: 47px;
   border: none;
   border-radius: 50px;
-  font-family: 'Montserrat';
   font-weight: 500;
   font-size: ${FontSize[16]};
   text-transform: uppercase;
