@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import FontSize from 'styledHelpers/FontSize';
 import Colors from 'styledHelpers/Colors';
-import searchIco from 'assets/searchIco.svg';
+import searchIco from 'assets/icons/searchIco.svg';
 
 const Input = styled.input`
   padding: 15px 30px;

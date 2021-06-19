@@ -3,7 +3,7 @@ import Colors from 'styledHelpers/Colors';
 import FontSize from 'styledHelpers/FontSize';
 
 const Button = styled.button`
-  background-color: ${Colors.buttonPrimary};
+  background-color: ${Colors.primary};
   width: 220px;
   height: 47px;
   border: none;
