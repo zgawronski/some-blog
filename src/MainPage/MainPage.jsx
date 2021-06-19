@@ -1,11 +1,16 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import GlobalStyle from 'styledHelpers/GlobalStyle';
 import styled from 'styled-components';
 import Sidebar from 'components/Sidebar/Sidebar';
-import Blog from 'components/Blog/Blog'
+import Blog from 'components/Blog/Blog';
+import { fetchUsers } from 'Api/usersSlice';
+import store from 'Api/store';
 
+
+
+store.dispatch(fetchUsers())
 
 const MainDiv = styled.div``;
 // eslint-disable-next-line react/prefer-stateless-function
@@ -13,18 +18,18 @@ class MainPage extends React.Component {
   render(){
 
     return (
-
+      <Router>
+      <Provider store={store}>
         <MainDiv>
-          <BrowserRouter>
             <GlobalStyle />
             <Switch>
               <Route exact patch='/'/>
             </Switch>
             <Sidebar />
             <Blog />
-          </BrowserRouter>
         </MainDiv>
-
+      </Provider>
+      </Router>
     );
 
   }
