@@ -19,6 +19,8 @@ const Button = styled.button`
       width: 105px;
       height: 30px;
       font-size: ${FontSize[10]};
+      font-weight: bold;
+      color: ${Colors.primary};
     `}
 `;
 

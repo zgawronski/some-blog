@@ -1,5 +1,5 @@
 const Colors = {
-  primary: '#87cefa',
+  primary: '#004a93',
   buttonSecondary: '#a9a9c9',
   inputPrimary: '#f9f9f9',
   inputTH: '#232C47',

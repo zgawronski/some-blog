@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import edit from 'assets/icons/edit.png';
+import edit2 from 'assets/icons/edit2.png';
 import Colors from 'styledHelpers/Colors';
 
 const ButtonIcon = styled.button`
@@ -8,7 +8,7 @@ const ButtonIcon = styled.button`
   height: 67px;
   border-radius: 10px;
   background-color: ${Colors.primary};
-  background-image: url(${edit});
+  background-image: url(${edit2});
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: 50%;

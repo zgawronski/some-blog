@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
+import Colors from 'styledHelpers/Colors';
 
 const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
 
     *, * ::before, * ::after {
         box-sizing: border-box;
@@ -10,8 +10,9 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        padding-left: 150px;
+        padding-left: 200px;
         font-family: 'Montserrat', sans-serif;
+        color: ${Colors.white}
     }
 `;
 

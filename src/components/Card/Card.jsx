@@ -6,7 +6,7 @@ import { Wrapper } from 'styledHelpers/Components';
 import Colors from 'styledHelpers/Colors';
 
 const StyledWrapper = styled(Wrapper)`
-  width: 30%;
+  width: 380px;
   min-height: 30vh;
   border-radius: 10px;
   overflow: hidden;
