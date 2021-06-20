@@ -1,12 +1,13 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch} from 'react-redux'
+// eslint-disable-next-line no-unused-vars
+import { useDispatch, connect } from 'react-redux'
 import styled, { css } from 'styled-components';
 import Button from 'styledHelpers/Button';
 import ButtonIcon from 'styledHelpers/ButtonIcon';
 import { Wrapper } from 'styledHelpers/Components';
 import Colors from 'styledHelpers/Colors';
-import { fetchPosts, selectAllPosts} from 'Api/postSlice'
+
 
 
 const StyledWrapper = styled(Wrapper)`
@@ -44,24 +45,24 @@ const InnerWrapper = styled.div`
 
 const DateInfo = styled.p``;
 
-const Card = () => {
+const Card = (props) => {
 
     const dispatch = useDispatch();
-    const posts = useSelector(selectAllPosts);
+    // const posts = useSelector();
 
-    const postsList = posts.map(post => <fetchPosts key={post.name} post={post} />)
+    // const postsList = posts.map(post => <fetchPosts key={post.name} post={post} />)
     const [post, setPost] = useState();
 
     useEffect(() => {
-        dispatch(fetchPosts);
-        setPost(postsList);
+        dispatch(props);
+        setPost();
 
     },[dispatch])
 
     return (
       <StyledWrapper>
       <InnerWrapper activeColor>
-        <h2>{post[0].name}</h2>
+        <h2>{post[0].body}</h2>
         <DateInfo>date</DateInfo>
         <ButtonIcon className='favButton' />
       </InnerWrapper>

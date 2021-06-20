@@ -1,4 +1,5 @@
-import * as actionTypes from 'Api/userTypes';
+/* eslint-disable no-unused-vars */
+import * as actionTypes from 'actions/actionTypes/userTypes';
 
 const defaultState = () => ({
   usersList: [],
@@ -9,25 +10,25 @@ const defaultState = () => ({
 /* eslint import/no-anonymous-default-export: [2, {"allowArrowFunction": true}] */
 export default (state = defaultState(), action) => {
   switch (action.type) {
-    case actionTypes.GET_USERS: {
+    case 'GET_USERS': {
       const data = action;
       return {
         ...state,
-        usersList: data.usersList,
+        usersList: data.payload,
       };
     }
-    case actionTypes.GET_COMMENTS: {
+    case 'GET_COMMENTS': {
       const data = action;
       return {
         ...state,
-        usersComment: data.usersComment,
+        usersComment: data.payload,
       };
     }
-    case actionTypes.GET_POSTS: {
+    case 'GET_POSTS': {
       const data = action;
       return {
         ...state,
-        usersPost: data.usersPost,
+        usersPost: data.payload,
       };
     }
     default: {

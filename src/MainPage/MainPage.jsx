@@ -5,12 +5,9 @@ import GlobalStyle from 'styledHelpers/GlobalStyle';
 import styled from 'styled-components';
 import Sidebar from 'components/Sidebar/Sidebar';
 import Blog from 'components/Blog/Blog';
-import { fetchUsers } from 'Api/usersSlice';
-import store from 'Api/store';
+import store from 'store/store';
 
 
-
-store.dispatch(fetchUsers())
 
 const MainDiv = styled.div``;
 // eslint-disable-next-line react/prefer-stateless-function
