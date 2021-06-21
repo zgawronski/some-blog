@@ -1,14 +1,10 @@
-/* eslint-disable react/prefer-stateless-function */
-import React, { useEffect, useState } from 'react';
-// eslint-disable-next-line no-unused-vars
-import { useDispatch, connect } from 'react-redux'
+/* eslint-disable react/prop-types */
+import React from 'react';
 import styled, { css } from 'styled-components';
 import Button from 'styledHelpers/Button';
 import ButtonIcon from 'styledHelpers/ButtonIcon';
 import { Wrapper } from 'styledHelpers/Components';
 import Colors from 'styledHelpers/Colors';
-
-
 
 const StyledWrapper = styled(Wrapper)`
   width: 380px;
@@ -45,35 +41,17 @@ const InnerWrapper = styled.div`
 
 const DateInfo = styled.p``;
 
-const Card = (props) => {
-
-    const dispatch = useDispatch();
-    // const posts = useSelector();
-
-    // const postsList = posts.map(post => <fetchPosts key={post.name} post={post} />)
-    const [post, setPost] = useState();
-
-    useEffect(() => {
-        dispatch(props);
-        setPost();
-
-    },[dispatch])
-
-    return (
-      <StyledWrapper>
-      <InnerWrapper activeColor>
-        <h2>{post[0].body}</h2>
-        <DateInfo>date</DateInfo>
-        <ButtonIcon className='favButton' />
-      </InnerWrapper>
-      <InnerWrapper flex>
-        <p>{post[0].body}</p>
-        <Button secondary>remove</Button>
-      </InnerWrapper>
-    </StyledWrapper>
-    );
-
-}
-
-
+const Card = (title, description) => (
+  <StyledWrapper>
+    <InnerWrapper activeColor>
+      <h2>{title}</h2>
+      <DateInfo>date</DateInfo>
+      <ButtonIcon className='favButton' />
+    </InnerWrapper>
+    <InnerWrapper flex>
+      <p>{description}</p>
+      <Button secondary>remove</Button>
+    </InnerWrapper>
+  </StyledWrapper>
+);
 export default Card;

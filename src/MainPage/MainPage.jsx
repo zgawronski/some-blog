@@ -5,30 +5,26 @@ import GlobalStyle from 'styledHelpers/GlobalStyle';
 import styled from 'styled-components';
 import Sidebar from 'components/Sidebar/Sidebar';
 import Blog from 'components/Blog/Blog';
-import store from 'store/store';
-
-
+import { store } from 'redux/store';
 
 const MainDiv = styled.div``;
 // eslint-disable-next-line react/prefer-stateless-function
 class MainPage extends React.Component {
-  render(){
-
+  render() {
     return (
       <Router>
-      <Provider store={store}>
-        <MainDiv>
+        <Provider store={store}>
+          <MainDiv>
             <GlobalStyle />
             <Switch>
-              <Route exact patch='/'/>
+              <Route exact patch='/' />
             </Switch>
             <Sidebar />
             <Blog />
-        </MainDiv>
-      </Provider>
+          </MainDiv>
+        </Provider>
       </Router>
     );
-
   }
 }
 export default MainPage;
