@@ -5,6 +5,7 @@ import Button from 'styledHelpers/Button';
 import ButtonIcon from 'styledHelpers/ButtonIcon';
 import { Wrapper } from 'styledHelpers/Components';
 import Colors from 'styledHelpers/Colors';
+import  { Posts, Title }  from 'components/Card/posts'
 
 const StyledWrapper = styled(Wrapper)`
   width: 380px;
@@ -41,17 +42,23 @@ const InnerWrapper = styled.div`
 
 const DateInfo = styled.p``;
 
-const Card = (title, description) => (
-  <StyledWrapper>
-    <InnerWrapper activeColor>
-      <h2>{title}</h2>
-      <DateInfo>date</DateInfo>
-      <ButtonIcon className='favButton' />
-    </InnerWrapper>
-    <InnerWrapper flex>
-      <p>{description}</p>
-      <Button secondary>remove</Button>
-    </InnerWrapper>
-  </StyledWrapper>
-);
+
+// eslint-disable-next-line react/prefer-stateless-function
+class Card extends React.Component {
+  render() {
+    return(
+      <StyledWrapper>
+        <InnerWrapper activeColor>
+          <h3>{Title.Title}</h3>
+          <DateInfo>date</DateInfo>
+          <ButtonIcon className='favButton' />
+        </InnerWrapper>
+        <InnerWrapper flex>
+<p>{Posts.Description}</p>
+          <Button secondary>remove</Button>
+        </InnerWrapper>
+      </StyledWrapper>
+    );
+  }
+}
 export default Card;

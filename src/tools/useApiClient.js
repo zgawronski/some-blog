@@ -13,7 +13,7 @@ function useApiClient() {
         if (data.statusCode > 299) {
           throw new Error(`fetch posts error: ${data.statusCode}`);
         }
-        return data;
+        return data.slice(0,10)
       });
 
   return {

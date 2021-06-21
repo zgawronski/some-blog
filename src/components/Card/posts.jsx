@@ -1,8 +1,26 @@
 import React from 'react';
 import usePosts from 'components/Card/usePosts';
-import Card from 'components/Card/Card';
 
-const Posts = () => {
+
+export const Title = () => {
+  const { status, posts } = usePosts();
+
+  return (
+    <div>
+      {status === 'loading' ? (
+        <progress size={120} />
+        ) : (
+          posts.map((post) => {
+            console.log(post);
+            const postKey = `key:${post.id}`;
+            return <div key={postKey} title={post.title} />;
+          })
+          )}
+    </div>
+  );
+};
+
+export const Posts = () => {
   const { status, posts } = usePosts();
 
   return (
@@ -12,11 +30,11 @@ const Posts = () => {
       ) : (
         posts.map((post) => {
           const postKey = `key:${post.id}`;
-          return <Card description={post.body} key={postKey} title={post.title} />;
+          return <div key={postKey} description={post.body} />;
         })
       )}
     </div>
   );
 };
 
-export default Posts;
+

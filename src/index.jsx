@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import MainPage from 'MainPage/MainPage';
+import MainPage from 'components/MainPage/MainPage';
 
 ReactDOM.render(
   <React.StrictMode>
