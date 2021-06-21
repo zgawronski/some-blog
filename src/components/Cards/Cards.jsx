@@ -1,11 +1,15 @@
+/* eslint-disable no-sequences */
+/* eslint-disable no-return-assign */
+/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import Button from 'styledHelpers/Button';
 import ButtonIcon from 'styledHelpers/ButtonIcon';
 import { Wrapper } from 'styledHelpers/Components';
 import Colors from 'styledHelpers/Colors';
-import  { Posts, Title }  from 'components/Card/posts'
 
 const StyledWrapper = styled(Wrapper)`
   width: 380px;
@@ -15,6 +19,7 @@ const StyledWrapper = styled(Wrapper)`
   position: relative;
   display: grid;
   grid-template-rows: 0.25fr 1fr;
+  margin-bottom: 5vh;
 `;
 const InnerWrapper = styled.div`
   padding: 17px 30px;
@@ -24,6 +29,7 @@ const InnerWrapper = styled.div`
   }
   p {
     margin: 0;
+    color: ${Colors.primary};
   }
   .favButton {
     position: absolute;
@@ -42,23 +48,20 @@ const InnerWrapper = styled.div`
 
 const DateInfo = styled.p``;
 
+const Cards = (props) => (
+  <StyledWrapper>
+    <InnerWrapper activeColor>
+      <h2>{props.title}...</h2>
+      <DateInfo>date</DateInfo>
+      <ButtonIcon className='favButton' />
+    </InnerWrapper>
+    <InnerWrapper flex>
+      <p>{props.description}</p>
+      <Link to='/Card'>
+        <Button secondary>Read more...</Button>
+      </Link>
+    </InnerWrapper>
+  </StyledWrapper>
+);
 
-// eslint-disable-next-line react/prefer-stateless-function
-class Card extends React.Component {
-  render() {
-    return(
-      <StyledWrapper>
-        <InnerWrapper activeColor>
-          <h3>{Title.Title}</h3>
-          <DateInfo>date</DateInfo>
-          <ButtonIcon className='favButton' />
-        </InnerWrapper>
-        <InnerWrapper flex>
-<p>{Posts.Description}</p>
-          <Button secondary>remove</Button>
-        </InnerWrapper>
-      </StyledWrapper>
-    );
-  }
-}
-export default Card;
+export default Cards;

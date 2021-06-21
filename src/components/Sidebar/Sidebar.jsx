@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ButtonIcon from 'styledHelpers/ButtonIcon';
 import Colors from 'styledHelpers/Colors';
@@ -44,11 +44,13 @@ const LogoutButton = styled.div`
 
 // eslint-disable-next-line react/prefer-stateless-function
 class Sidebar extends React.Component {
-  render(){
-      return (
+  render() {
+    return (
       <BarWrapper>
         <p className='imgP'>Some Blog</p>
-        <img className='logo' src='./media/logo.png' alt='#' />
+        <Link to='/'>
+          <img className='logo' src='./media/logo.png' alt='#' />
+        </Link>
         <StyledLinksList>
           <li>
             <NavLink to='/' activeClass='active'>
