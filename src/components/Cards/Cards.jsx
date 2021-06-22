@@ -60,6 +60,9 @@ const InnerWrapper = styled.div`
       flex-direction: column;
       justify-content: space-between;
     `}
+  .p {
+    color: ${Colors.white};
+  }
 `;
 
 const Cards = (props) => {
@@ -82,21 +85,28 @@ const Cards = (props) => {
       setTitle(`${props.title.slice(0, 15)}...`);
     }
   }
-
+  const x = props.id;
+  const chk = JSON.parse(localStorage.getItem('names'));
   function favPost() {
-    warehouse.push(props.id);
-    console.log(warehouse);
-    localStorage.setItem('names', JSON.stringify(warehouse));
-    // @ts-ignore: Object is possibly 'null'.
-    const tmp = JSON.parse(localStorage.getItem('names'));
-    localStorage.setItem('names', JSON.stringify(tmp));
-    tmp.push(props.id);
+    warehouse.push(x);
+    if (chk == null) {
+      localStorage.setItem('names', JSON.stringify(warehouse));
+    } else {
+      const items = JSON.parse(localStorage.getItem('names'));
+      const tmp = [];
+      items.forEach((z) => {
+        tmp.push(z);
+      });
+      tmp.push(x);
+      localStorage.setItem('names', JSON.stringify(tmp));
+    }
   }
 
   return (
     <StyledWrapper id={props.id} bigger={xl} smaller={!xl}>
       <InnerWrapper activeColor>
         <h2>{title}</h2>
+        <p className='p'>{props.id}</p>
         <ButtonIcon onClick={() => favPost()} className='favButton' />
       </InnerWrapper>
       <InnerWrapper flex>

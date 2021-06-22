@@ -54,6 +54,7 @@ const LogoutButton = styled.div`
   }
 `;
 
+
 // eslint-disable-next-line react/prefer-stateless-function
 class Sidebar extends React.Component {
   render() {
@@ -65,7 +66,7 @@ class Sidebar extends React.Component {
         </Link>
         <StyledLinksList>
           <li>
-            <Link to='/Favorite'>
+            <Link to='/Favorites'>
               <ButtonIcon />
             </Link>
           </li>

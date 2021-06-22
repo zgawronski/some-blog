@@ -43,7 +43,14 @@ const AllPosts = () => {
           ) : (
             posts.map((post) => {
               const postKey = `key:${post.id}`;
-              return <Post key={postKey} title={post.title.slice(0, 15)} description={post.body} />;
+              return (
+                <Post
+                  key={postKey}
+                  id={post.id}
+                  title={post.title.slice(0, 15)}
+                  description={post.body}
+                />
+              );
             })
           )}
         </div>

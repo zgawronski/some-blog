@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
@@ -6,6 +7,7 @@ import styled from 'styled-components';
 import ButtonIcon from 'styledHelpers/ButtonIcon';
 import { Wrapper } from 'styledHelpers/Components';
 import Colors from 'styledHelpers/Colors';
+import { warehouse } from 'tools/warehouse';
 
 const StyledWrapper = styled(Wrapper)`
   width: 100%;
@@ -35,16 +37,29 @@ const InnerWrapper = styled.div`
   }
 `;
 
-const Post = (props) => (
-  <StyledWrapper id={props.id}>
-    <InnerWrapper activeColor>
-      <h2>{props.title}</h2>
-      <ButtonIcon className='favButton2' />
-    </InnerWrapper>
-    <InnerWrapper flex>
-      <p>{props.description}</p>
-    </InnerWrapper>
-  </StyledWrapper>
-);
+const Post = (props) => {
+  const x = props.id;
+
+  function favPost() {
+    warehouse.push(x);
+    localStorage.setItem('names', JSON.stringify(warehouse));
+    // @ts-ignore: Object is possibly 'null'.
+    const tmp = JSON.parse(localStorage.getItem('names'));
+    localStorage.setItem('names', JSON.stringify(tmp));
+    tmp.push(x);
+  }
+
+  return (
+    <StyledWrapper id={props.id}>
+      <InnerWrapper activeColor>
+        <h2>{props.title}</h2>
+        <ButtonIcon onClick={() => favPost()} className='favButton2' />
+      </InnerWrapper>
+      <InnerWrapper flex>
+        <p>{props.description}</p>
+      </InnerWrapper>
+    </StyledWrapper>
+  );
+};
 
 export default Post;

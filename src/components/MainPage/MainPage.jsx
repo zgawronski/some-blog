@@ -8,8 +8,7 @@ import Sidebar from 'components/Sidebar/Sidebar';
 import Blog from 'components/Blog/Blog';
 import Logout from 'components/Logout/Logout';
 import AllPosts from 'components/AllPosts/AllPosts';
-import Button from 'styledHelpers/Button';
-import Buttonicon from 'styledHelpers/ButtonIcon';
+import Favorites from 'components/Favorites/Favorites';
 
 const MainDiv = styled.div``;
 
@@ -24,6 +23,9 @@ class MainPage extends React.Component {
             <Route exact path='/AllPosts'>
               <AllPosts />
             </Route>
+            <Route exact path='/Favorites'>
+              <Favorites />
+            </Route>
             <Route exact path='/Logout'>
               <Logout />
             </Route>
@@ -32,8 +34,6 @@ class MainPage extends React.Component {
             </Route>
           </Switch>
           <Sidebar />
-          <Button />
-          <Buttonicon />
         </MainDiv>
       </Router>
     );
