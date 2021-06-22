@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable no-sequences */
 /* eslint-disable no-return-assign */
 /* eslint-disable no-undef */
@@ -48,8 +49,12 @@ const InnerWrapper = styled.div`
 
 const DateInfo = styled.p``;
 
+function changeSize(x) {
+  const prop = document.getElementById(x);
+}
+
 const Cards = (props) => (
-  <StyledWrapper>
+  <StyledWrapper id={props.id}>
     <InnerWrapper activeColor>
       <h2>{props.title}...</h2>
       <DateInfo>date</DateInfo>
@@ -58,7 +63,9 @@ const Cards = (props) => (
     <InnerWrapper flex>
       <p>{props.description}</p>
       <Link to='/Card'>
-        <Button secondary>Read more...</Button>
+        <Button onClick={changSize((x = props.id))} secondary>
+          Read more...
+        </Button>
       </Link>
     </InnerWrapper>
   </StyledWrapper>
