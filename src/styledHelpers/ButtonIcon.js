@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import edit2 from 'assets/icons/edit2.png';
+import favorite from 'assets/icons/favorite.png';
 import Colors from 'styledHelpers/Colors';
-
 
 const ButtonIcon = styled.button`
   display: block;
@@ -9,12 +8,12 @@ const ButtonIcon = styled.button`
   height: 67px;
   border-radius: 10px;
   background-color: ${Colors.primary};
-  background-image: url(${edit2});
-  background-size: 20px;
+  background-image: url(${favorite});
+  background-size: 40px;
   background-repeat: no-repeat;
-  background-position: 50%;
+  background-position: 55%;
   border: 1px solid ${Colors.white};
-  &.active {
+  :active {
     background-color: ${Colors.white};
     border: 1px solid ${Colors.buttonSecondary};
   }

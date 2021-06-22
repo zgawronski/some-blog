@@ -27,7 +27,6 @@ const HeaderDiv = styled.div`
   }
 `;
 
-
 const Blog = () => {
   const { status, posts } = usePosts();
   return (
@@ -41,10 +40,12 @@ const Blog = () => {
         {status === 'loading' ? (
           <progress size={120} />
         ) : (
-          posts.map((post) => {
-            const postKey = `key:${post.id}`;
-            return <Cards key={postKey} title={post.title.slice(0, 15)} description={post.body} />;
-          }).slice(0, 6)
+          posts
+            .map((post) => {
+              const postKey = `key:${post.id}`;
+              return <Cards key={postKey} title={post.title} description={post.body} />;
+            })
+            .slice(0, 6)
         )}
       </BlogDiv>
     </HeadWrapper>

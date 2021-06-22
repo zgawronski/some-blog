@@ -1,16 +1,17 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 // import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import Button from 'styledHelpers/Button';
 import ButtonIcon from 'styledHelpers/ButtonIcon';
 import { Wrapper } from 'styledHelpers/Components';
 import Colors from 'styledHelpers/Colors';
+import { warehouse } from 'tools/warehouse';
 
 const StyledWrapper = styled(Wrapper)`
-
-  height: 300px;
+  height: 200px;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
@@ -18,17 +19,23 @@ const StyledWrapper = styled(Wrapper)`
   grid-template-rows: 0.25fr 1fr;
   margin-bottom: 5vh;
 
-  ${({smaller}) =>
+  ${({ smaller }) =>
     smaller &&
-      css`
-        width: 350px;
-        `}
-  ${({bigger}) =>
+    css`
+      width: 350px;
+      transition: 500ms;
+    `}
+  ${({ bigger }) =>
     bigger &&
-      css`
-        width: 900px;
-        height: 500px;
-        `}
+    css`
+      width: 900px;
+      height: 500px;
+      transition: 500ms;
+      position: absolute;
+      top: 10%;
+      left: 20%;
+      z-index: 1000;
+    `}
 `;
 const InnerWrapper = styled.div`
   padding: 17px 30px;
@@ -55,50 +62,51 @@ const InnerWrapper = styled.div`
     `}
 `;
 
-const DateInfo = styled.p``;
-
-
-
-
-
 const Cards = (props) => {
-
   const [xl, setXl] = useState(false);
-  const [cut, setCut] = useState(props.description.slice(0,20));
-  const [text, setText] = useState('Read More...')
+  const [cut, setCut] = useState(`${props.description.slice(0, 20)}...`);
+  const [text, setText] = useState('Read More...');
+  const [title, setTitle] = useState(`${props.title.slice(0, 15)}...`);
   // const [smaller, setSmaller]=useState(true);
 
-
   function changeSize() {
-    if (!xl)
-    {
+    if (!xl) {
       setXl(true);
       setCut(props.description);
-      setText('Read less')
-
-    }else{
+      setText('Read less');
+      setTitle(props.title);
+    } else {
       setXl(false);
-      setCut(props.description.slice(0,20));
-      setText('Read More...')
+      setCut(`${props.description.slice(0, 20)}...`);
+      setText('Read More...');
+      setTitle(`${props.title.slice(0, 15)}...`);
     }
   }
-  // const date = getDate()
 
-  return(
+  function favPost() {
+    warehouse.push(props.id);
+    console.log(warehouse);
+    localStorage.setItem('names', JSON.stringify(warehouse));
+    // @ts-ignore: Object is possibly 'null'.
+    const tmp = JSON.parse(localStorage.getItem('names'));
+    localStorage.setItem('names', JSON.stringify(tmp));
+    tmp.push(props.id);
+  }
+
+  return (
     <StyledWrapper id={props.id} bigger={xl} smaller={!xl}>
       <InnerWrapper activeColor>
-        <h2>{props.title}...</h2>
-        <DateInfo>date</DateInfo>
-        <ButtonIcon className='favButton' />
+        <h2>{title}</h2>
+        <ButtonIcon onClick={() => favPost()} className='favButton' />
       </InnerWrapper>
       <InnerWrapper flex>
-        <p>{cut}...</p>
-          <Button onClick={() => changeSize()} secondary>
-            {text}
-          </Button>
+        <p>{cut}</p>
+        <Button onClick={() => changeSize()} secondary>
+          {text}
+        </Button>
       </InnerWrapper>
     </StyledWrapper>
   );
-}
+};
 
 export default Cards;

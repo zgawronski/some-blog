@@ -11,6 +11,10 @@ const Button = styled.button`
   font-weight: 500;
   font-size: ${FontSize[16]};
   text-transform: uppercase;
+  :active {
+    background-color: ${Colors.white};
+    border: 1px solid ${Colors.buttonSecondary};
+  }
 
   ${({ secondary }) =>
     secondary &&
@@ -21,6 +25,10 @@ const Button = styled.button`
       font-size: ${FontSize[10]};
       font-weight: bold;
       color: ${Colors.primary};
+      :active {
+        background-color: ${Colors.white};
+        border: 1px solid ${Colors.buttonSecondary};
+      }
     `}
 `;
 
