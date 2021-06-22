@@ -7,15 +7,15 @@ import { Wrapper } from 'styledHelpers/Components';
 import Colors from 'styledHelpers/Colors';
 
 const StyledWrapper = styled(Wrapper)`
-    width: 25vw;
-    height: 35vh;
+    margin: auto;
+    margin-top: 100px;
+    width: 800px;
+    height: 500px;
     border-radius: 10px;
     overflow: hidden;
     position: relative;
     display: grid;
     grid-template-rows: 0.25fr 1fr;
-    margin-bottom: 5vh;
-
 `;
 const InnerWrapper = styled.div`
     padding: 17px 30px;

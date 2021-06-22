@@ -28,14 +28,14 @@ const HeaderDiv = styled.div`
 `;
 
 
-const Blog = () => {
+const AllPosts = () => {
   const { status, posts } = usePosts();
   return (
     <HeadWrapper>
       <HeaderDiv>
         <Input search placeholder='search' />
         <h2>Some Blog </h2>
-        <p>You can view 6 posts</p>
+        <p>You can view {posts.length} posts, and thats all what we have ;-)</p>
       </HeaderDiv>
       <BlogDiv>
         {status === 'loading' ? (
@@ -44,11 +44,11 @@ const Blog = () => {
           posts.map((post) => {
             const postKey = `key:${post.id}`;
             return <Cards key={postKey} title={post.title.slice(0, 15)} description={post.body} />;
-          }).slice(0, 6)
+          })
         )}
       </BlogDiv>
     </HeadWrapper>
   );
 };
 
-export default Blog;
+export default AllPosts;

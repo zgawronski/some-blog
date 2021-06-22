@@ -10,7 +10,7 @@ import Colors from 'styledHelpers/Colors';
 
 const StyledWrapper = styled(Wrapper)`
 
-  height: 35vh;
+  height: 300px;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
@@ -21,7 +21,7 @@ const StyledWrapper = styled(Wrapper)`
   ${({smaller}) =>
     smaller &&
       css`
-        width: 25vw;
+        width: 350px;
         `}
   ${({bigger}) =>
     bigger &&
@@ -65,6 +65,7 @@ const Cards = (props) => {
 
   const [xl, setXl] = useState(false);
   const [cut, setCut] = useState(props.description.slice(0,20));
+  const [text, setText] = useState('Read More...')
   // const [smaller, setSmaller]=useState(true);
 
 
@@ -72,11 +73,13 @@ const Cards = (props) => {
     if (!xl)
     {
       setXl(true);
-      setCut(props.description)
+      setCut(props.description);
+      setText('Read less')
 
     }else{
       setXl(false);
-      setCut(props.description.slice(0,20))
+      setCut(props.description.slice(0,20));
+      setText('Read More...')
     }
   }
   // const date = getDate()
@@ -91,7 +94,7 @@ const Cards = (props) => {
       <InnerWrapper flex>
         <p>{cut}...</p>
           <Button onClick={() => changeSize()} secondary>
-            Read more...
+            {text}
           </Button>
       </InnerWrapper>
     </StyledWrapper>

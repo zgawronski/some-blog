@@ -7,6 +7,7 @@ import Sidebar from 'components/Sidebar/Sidebar';
 // eslint-disable-next-line import/no-cycle
 import Blog from 'components/Blog/Blog';
 import Logout from 'components/Logout/Logout'
+import AllPosts from 'components/AllPosts/AllPosts';
 
 const MainDiv = styled.div``;
 
@@ -21,6 +22,9 @@ class MainPage extends React.Component {
           <Switch>
             <Route exact path='/Logout'>
               <Logout />
+            </Route>
+            <Route exact path='AllPosts'>
+              <AllPosts />
             </Route>
             <Route exact path='/'>
               <Blog />

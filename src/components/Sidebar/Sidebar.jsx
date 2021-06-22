@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ButtonIcon from 'styledHelpers/ButtonIcon';
 import Colors from 'styledHelpers/Colors';
+import logout from 'assets/icons/logout.png'
 
 const BarWrapper = styled.nav`
   display: flex;
@@ -40,6 +41,10 @@ const StyledLinksList = styled.ul`
 const LogoutButton = styled.div`
   margin-top: auto;
   margin-bottom: 5vh;
+  .logout{
+    background-image: url(${logout});
+    background-size: 40px;
+  }
 `;
 
 // eslint-disable-next-line react/prefer-stateless-function
@@ -59,14 +64,14 @@ class Sidebar extends React.Component {
           </li>
 
           <li>
-            <Link to='/AllPost'>
+            <Link to='/AllPosts'>
               <ButtonIcon />
             </Link>
           </li>
         </StyledLinksList>
         <LogoutButton>
           <Link to='/logout'>
-            <ButtonIcon />
+            <ButtonIcon className='logout'/>
           </Link>
         </LogoutButton>
       </BarWrapper>

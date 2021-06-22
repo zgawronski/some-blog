@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import edit2 from 'assets/icons/edit2.png';
 import Colors from 'styledHelpers/Colors';
 
+
 const ButtonIcon = styled.button`
   display: block;
   width: 67px;
