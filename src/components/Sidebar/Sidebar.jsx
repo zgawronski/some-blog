@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ButtonIcon from 'styledHelpers/ButtonIcon';
 import Colors from 'styledHelpers/Colors';
@@ -53,25 +53,21 @@ class Sidebar extends React.Component {
         </Link>
         <StyledLinksList>
           <li>
-            <NavLink to='/' activeClass='active'>
+            <Link to='/Favorite'>
               <ButtonIcon />
-            </NavLink>
+            </Link>
           </li>
+
           <li>
-            <NavLink to='/' activeClass='active'>
+            <Link to='/AllPost'>
               <ButtonIcon />
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/' activeClass='active'>
-              <ButtonIcon />
-            </NavLink>
+            </Link>
           </li>
         </StyledLinksList>
         <LogoutButton>
-          <NavLink to='/logout' activeClass='active'>
+          <Link to='/logout'>
             <ButtonIcon />
-          </NavLink>
+          </Link>
         </LogoutButton>
       </BarWrapper>
     );

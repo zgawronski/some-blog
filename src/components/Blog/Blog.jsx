@@ -27,6 +27,7 @@ const HeaderDiv = styled.div`
   }
 `;
 
+
 const Blog = () => {
   const { status, posts } = usePosts();
   return (
@@ -34,7 +35,7 @@ const Blog = () => {
       <HeaderDiv>
         <Input search placeholder='search' />
         <h2>Some Blog </h2>
-        <p>6 cards</p>
+        <p>You can view {posts.length} posts</p>
       </HeaderDiv>
       <BlogDiv>
         {status === 'loading' ? (

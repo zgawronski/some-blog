@@ -1,12 +1,7 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable eqeqeq */
-/* eslint-disable no-sequences */
-/* eslint-disable no-return-assign */
-/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import Button from 'styledHelpers/Button';
 import ButtonIcon from 'styledHelpers/ButtonIcon';
@@ -15,7 +10,7 @@ import Colors from 'styledHelpers/Colors';
 
 const StyledWrapper = styled(Wrapper)`
 
-  min-height: 30vh;
+  height: 35vh;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
@@ -26,12 +21,13 @@ const StyledWrapper = styled(Wrapper)`
   ${({smaller}) =>
     smaller &&
       css`
-        width: 380px;
+        width: 25vw;
         `}
   ${({bigger}) =>
     bigger &&
       css`
         width: 900px;
+        height: 500px;
         `}
 `;
 const InnerWrapper = styled.div`
@@ -68,20 +64,22 @@ const DateInfo = styled.p``;
 const Cards = (props) => {
 
   const [xl, setXl] = useState(false);
+  const [cut, setCut] = useState(props.description.slice(0,20));
   // const [smaller, setSmaller]=useState(true);
+
 
   function changeSize() {
     if (!xl)
     {
       setXl(true);
+      setCut(props.description)
 
     }else{
-      setXl(false)
-
+      setXl(false);
+      setCut(props.description.slice(0,20))
     }
   }
-
-  const date = getDate()
+  // const date = getDate()
 
   return(
     <StyledWrapper id={props.id} bigger={xl} smaller={!xl}>
@@ -91,12 +89,10 @@ const Cards = (props) => {
         <ButtonIcon className='favButton' />
       </InnerWrapper>
       <InnerWrapper flex>
-        <p>{props.description}</p>
-
+        <p>{cut}...</p>
           <Button onClick={() => changeSize()} secondary>
             Read more...
           </Button>
-
       </InnerWrapper>
     </StyledWrapper>
   );
