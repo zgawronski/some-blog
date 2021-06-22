@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable eqeqeq */
 /* eslint-disable no-sequences */
 /* eslint-disable no-return-assign */
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import Button from 'styledHelpers/Button';
@@ -13,7 +14,7 @@ import { Wrapper } from 'styledHelpers/Components';
 import Colors from 'styledHelpers/Colors';
 
 const StyledWrapper = styled(Wrapper)`
-  width: 380px;
+
   min-height: 30vh;
   border-radius: 10px;
   overflow: hidden;
@@ -21,6 +22,17 @@ const StyledWrapper = styled(Wrapper)`
   display: grid;
   grid-template-rows: 0.25fr 1fr;
   margin-bottom: 5vh;
+
+  ${({smaller}) =>
+    smaller &&
+      css`
+        width: 380px;
+        `}
+  ${({bigger}) =>
+    bigger &&
+      css`
+        width: 900px;
+        `}
 `;
 const InnerWrapper = styled.div`
   padding: 17px 30px;
@@ -49,26 +61,45 @@ const InnerWrapper = styled.div`
 
 const DateInfo = styled.p``;
 
-function changeSize(x) {
-  const prop = document.getElementById(x);
-}
 
-const Cards = (props) => (
-  <StyledWrapper id={props.id}>
-    <InnerWrapper activeColor>
-      <h2>{props.title}...</h2>
-      <DateInfo>date</DateInfo>
-      <ButtonIcon className='favButton' />
-    </InnerWrapper>
-    <InnerWrapper flex>
-      <p>{props.description}</p>
-      <Link to='/Card'>
-        <Button onClick={changSize((x = props.id))} secondary>
-          Read more...
-        </Button>
-      </Link>
-    </InnerWrapper>
-  </StyledWrapper>
-);
+
+
+
+const Cards = (props) => {
+
+  const [xl, setXl] = useState(false);
+  // const [smaller, setSmaller]=useState(true);
+
+  function changeSize() {
+    if (!xl)
+    {
+      setXl(true);
+
+    }else{
+      setXl(false)
+
+    }
+  }
+
+  const date = getDate()
+
+  return(
+    <StyledWrapper id={props.id} bigger={xl} smaller={!xl}>
+      <InnerWrapper activeColor>
+        <h2>{props.title}...</h2>
+        <DateInfo>date</DateInfo>
+        <ButtonIcon className='favButton' />
+      </InnerWrapper>
+      <InnerWrapper flex>
+        <p>{props.description}</p>
+
+          <Button onClick={() => changeSize()} secondary>
+            Read more...
+          </Button>
+
+      </InnerWrapper>
+    </StyledWrapper>
+  );
+}
 
 export default Cards;
