@@ -1,47 +1,88 @@
-import React from 'react';
+import React, {useState} from 'react';
+import ReactPaginate from 'react-paginate';
+
+
 import Post from 'components/AllPosts/Post';
-import styled from 'styled-components';
-import Colors from 'styledHelpers/Colors';
 import Input from 'styledHelpers/Input';
+import Colors from 'styledHelpers/Colors'
+import styled from 'styled-components';
+import { HeadWrapper, HeaderDiv} from 'styledHelpers/Components';
 
 import usePosts from 'components/Cards/usePosts';
 
-const HeadWrapper2 = styled.div`
-  margin-top: 50px;
-`;
+
 const BlogDiv2 = styled.div`
-  padding: 25px;
+  padding: 10px;
   div {
     margin-bottom: 20px;
   }
-`;
-
-const HeaderDiv2 = styled.div`
-  h2 {
-    margin: 25px 0 0 0;
+  .pagination {
+    display: flex;
+    position: relative;
+    justify-content: center;
     color: ${Colors.primary};
-  }
-  p {
-    color: ${Colors.primary};
-    margin: 0;
-  }
+    cursor: pointer;
+    margin-top: 0;
+    background-color: ${Colors.white};
+    list-style-type: none;
+    .active {
+        color: ${Colors.black};
+        padding: 5px;
+    }
+    .break-me{
+        padding: 5px;
+    }
+    .page{
+        padding: 5px;
+    }
+    .next{
+        padding: 5px;
+    }
+    .previous{
+        padding: 5px;
+    }
+}
 `;
 
 const AllPosts = () => {
   const { status, posts } = usePosts();
+
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const handlePageClick = (data) => {
+    const {selected} = data;
+    setCurrentPage(selected);
+}
+
+const currentPosts = posts.slice(currentPage, currentPage + 3);
   return (
-    <HeadWrapper2>
-      <HeaderDiv2>
+    <HeadWrapper>
+      <HeaderDiv>
         <Input search placeholder='search' />
         <h2>Some Blog </h2>
         <p>You can view {posts.length} posts, and thats all what we have ;-)</p>
-      </HeaderDiv2>
+      </HeaderDiv>
       <BlogDiv2>
+          <ReactPaginate
+                    previousLabel="PREVIOUS"
+                    nextLabel="NEXT"
+                    breakLabel="..."
+                    breakClassName="break-me"
+                    pageCount={posts.length}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={5}
+                    onPageChange={handlePageClick}
+                    containerClassName="pagination"
+                    activeClassName="active"
+                    pageClassName="page"
+                    previousClassName="previous"
+                    nextClassName="next"
+                />
         <div>
           {status === 'loading' ? (
             <progress size={120} />
           ) : (
-            posts.map((post) => {
+            currentPosts.map((post) => {
               const postKey = `key:${post.id}`;
               return (
                 <Post
@@ -55,7 +96,7 @@ const AllPosts = () => {
           )}
         </div>
       </BlogDiv2>
-    </HeadWrapper2>
+    </HeadWrapper>
   );
 };
 

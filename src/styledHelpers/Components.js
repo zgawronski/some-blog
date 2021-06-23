@@ -12,3 +12,23 @@ export const boxShadow = () => ({
 export const Wrapper = styled.div`
   ${boxShadow()};
 `;
+
+
+export const HeadWrapper = styled.div`
+  margin-top: 30px;
+`;
+export const BlogDiv = styled.div`
+  column-width: 380px;
+  margin-top: 50px;
+`;
+
+export const HeaderDiv = styled.div`
+  h2 {
+    margin: 25px 0 0 0;
+    color: ${Colors.primary};
+  }
+  p {
+    color: ${Colors.primary};
+    margin: 0;
+  }
+`;

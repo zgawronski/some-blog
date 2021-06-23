@@ -40,6 +40,10 @@ const InnerWrapper = styled.div`
         flex-direction: column;
         justify-content: space-between;
         `}
+        .comeBack{
+          margin: auto;
+          width: 50%;
+        }
 `;
 
 const DateInfo = styled.p``;
@@ -56,6 +60,7 @@ const Logout = () => (
       </InnerWrapper>
       <InnerWrapper flex>
         <p>Ogarnął mnie smutek, że odchodzisz...</p>
+        <img className='comeBack' src='./media/baby-come-back.jpg' alt=''/>
         <Link to='/'>
           <Button secondary>
             Go Back!!!
