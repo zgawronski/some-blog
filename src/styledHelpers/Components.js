@@ -15,6 +15,7 @@ export const Wrapper = styled.div`
 
 
 export const HeadWrapper = styled.div`
+  margin-right: 50px;
   margin-top: 30px;
 `;
 export const BlogDiv = styled.div`

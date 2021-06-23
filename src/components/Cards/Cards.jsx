@@ -40,7 +40,7 @@ const StyledWrapper = styled(Wrapper)`
 const InnerWrapper = styled.div`
   padding: 17px 30px;
   background-color: ${({ activeColor }) => (activeColor ? Colors.primary : Colors.white)};
-  h2 {
+  h3 {
     margin: 0;
   }
   p {
@@ -105,8 +105,7 @@ const Cards = (props) => {
   return (
     <StyledWrapper id={props.id} bigger={xl} smaller={!xl}>
       <InnerWrapper activeColor>
-        <h2>{title}</h2>
-        <p className='p'>{props.id}</p>
+        <h3>{props.id}) {title}</h3>
         <ButtonIcon onClick={() => favPost()} className='favButton' />
       </InnerWrapper>
       <InnerWrapper flex>

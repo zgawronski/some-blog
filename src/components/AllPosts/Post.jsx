@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import ButtonIcon from 'styledHelpers/ButtonIcon';
 import { Wrapper } from 'styledHelpers/Components';
 import Colors from 'styledHelpers/Colors';
+import fontSize from 'styledHelpers/FontSize'
 import { warehouse } from 'tools/warehouse';
 
 const StyledWrapper = styled(Wrapper)`
@@ -18,25 +19,24 @@ const StyledWrapper = styled(Wrapper)`
 const InnerWrapper = styled.div`
   padding: 15px 15px;
   background-color: ${({ activeColor }) => (activeColor ? Colors.primary : Colors.white)};
-  h2 {
+  margin-bottom: 0;
+  h4 {
     margin: 0;
   }
   p {
     margin: 0;
     color: ${Colors.primary};
+    font-size: ${fontSize[14]};
   }
   .favButton2 {
     position: absolute;
     right: 5%;
     top: 10%;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     background-size: 20px;
     background-position: 50%;
     border-radius: 5px;
-  }
-  .p {
-    color: ${Colors.white};
   }
 `;
 
@@ -55,8 +55,7 @@ const Post = (props) => {
   return (
     <StyledWrapper id={props.id}>
       <InnerWrapper activeColor>
-        <h2>{props.title}</h2>
-        <p className='p'>{props.id}</p>
+        <h4>{props.id}) {props.title}</h4>
         <ButtonIcon onClick={() => favPost()} className='favButton2' />
       </InnerWrapper>
       <InnerWrapper flex>
