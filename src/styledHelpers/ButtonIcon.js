@@ -11,7 +11,7 @@ const ButtonIcon = styled.button`
   background-image: url(${favorite});
   background-size: 40px;
   background-repeat: no-repeat;
-  background-position: 55%;
+  background-position: 50%;
   border: 1px solid ${Colors.white};
   :active {
     background-color: ${Colors.white};
