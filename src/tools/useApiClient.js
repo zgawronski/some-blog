@@ -1,4 +1,4 @@
-function useApiClient() {
+const useApiClient = () => {
   const baseUrl = 'https://jsonplaceholder.typicode.com';
 
   const get = async (endUrl) =>
