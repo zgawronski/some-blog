@@ -12,31 +12,27 @@ import Favorites from 'components/Favorites/Favorites';
 
 const MainDiv = styled.div``;
 
-// eslint-disable-next-line react/prefer-stateless-function
-class MainPage extends React.Component {
-  render() {
-    return (
-      <Router>
-        <MainDiv>
-          <GlobalStyle />
-          <Switch>
-            <Route exact path='/AllPosts'>
-              <AllPosts />
-            </Route>
-            <Route exact path='/Favorites'>
-              <Favorites />
-            </Route>
-            <Route exact path='/Logout'>
-              <Logout />
-            </Route>
-            <Route exact path='/'>
-              <Blog />
-            </Route>
-          </Switch>
-          <Sidebar />
-        </MainDiv>
-      </Router>
-    );
-  }
-}
+const MainPage = () => (
+  <Router>
+    <MainDiv>
+      <GlobalStyle />
+      <Switch>
+        <Route exact path='/AllPosts'>
+          <AllPosts />
+        </Route>
+        <Route exact path='/Favorites'>
+          <Favorites />
+        </Route>
+        <Route exact path='/Logout'>
+          <Logout />
+        </Route>
+        <Route exact path='/'>
+          <Blog />
+        </Route>
+      </Switch>
+      <Sidebar />
+    </MainDiv>
+  </Router>
+);
+
 export default MainPage;

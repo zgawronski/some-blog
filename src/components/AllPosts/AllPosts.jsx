@@ -62,7 +62,7 @@ const AllPosts = () => {
   return (
     <HeadWrapper>
       <HeaderDiv>
-        <Input search placeholder='search' value={inputText} onChange={inputHandler} />
+        <Input search placeholder='search' onChange={inputHandler} />
         <h2>Some Blog </h2>
         <p>You can view {posts.length} posts, and thats all what we have ;-)</p>
       </HeaderDiv>

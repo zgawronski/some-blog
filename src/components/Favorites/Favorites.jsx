@@ -1,7 +1,7 @@
-/* eslint-disable no-restricted-syntax */
 /* eslint-disable consistent-return */
 /* eslint-disable array-callback-return */
 /* eslint-disable no-undef */
+
 import React, { useState } from 'react';
 
 import Cards from 'components/Cards/Cards';
@@ -56,7 +56,6 @@ const Favorites = () => {
               }
             })
             .map((post) => {
-              // console.log(post);
               const postKey = `key:${post.id}`;
               return (
                 <Cards key={postKey} id={post.id} title={post.title} description={post.body} />

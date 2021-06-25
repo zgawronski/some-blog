@@ -8,7 +8,7 @@ import Button from 'styledHelpers/Button';
 import ButtonIcon from 'styledHelpers/ButtonIcon';
 import { Wrapper } from 'styledHelpers/Components';
 import Colors from 'styledHelpers/Colors';
-import { warehouse } from 'tools/warehouse';
+// import { warehouse } from 'tools/warehouse';
 
 const StyledWrapper = styled(Wrapper)`
   height: 200px;
@@ -65,6 +65,8 @@ const InnerWrapper = styled.div`
   }
 `;
 
+export const warehouse = [];
+
 const Cards = (props) => {
   const [xl, setXl] = useState(false);
   const [cut, setCut] = useState(`${props.description.slice(0, 20)}...`);
@@ -88,7 +90,7 @@ const Cards = (props) => {
   const x = props.id;
   const chk = JSON.parse(localStorage.getItem('names'));
   function favPost() {
-    warehouse.push(x);
+    if (!warehouse.includes(x)) warehouse.push(x);
     if (chk == null) {
       localStorage.setItem('names', JSON.stringify(warehouse));
     } else {
@@ -105,7 +107,9 @@ const Cards = (props) => {
   return (
     <StyledWrapper id={props.id} bigger={xl} smaller={!xl}>
       <InnerWrapper activeColor>
-        <h3>{props.id}) {title}</h3>
+        <h3>
+          {props.id}) {title}
+        </h3>
         <ButtonIcon onClick={() => favPost()} className='favButton' />
       </InnerWrapper>
       <InnerWrapper flex>

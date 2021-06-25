@@ -18,7 +18,7 @@ const Blog = () => {
   return (
     <HeadWrapper>
       <HeaderDiv>
-        <Input search placeholder='search' value={inputText} onChange={inputHandler} />
+        <Input search placeholder='search' onChange={inputHandler} />
         <h2>Some Blog </h2>
         <p>You can view 9 posts</p>
       </HeaderDiv>

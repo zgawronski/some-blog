@@ -7,8 +7,8 @@ import styled from 'styled-components';
 import ButtonIcon from 'styledHelpers/ButtonIcon';
 import { Wrapper } from 'styledHelpers/Components';
 import Colors from 'styledHelpers/Colors';
-import fontSize from 'styledHelpers/FontSize'
-import { warehouse } from 'tools/warehouse';
+import fontSize from 'styledHelpers/FontSize';
+import { warehouse } from 'components/Cards/Cards';
 
 const StyledWrapper = styled(Wrapper)`
   width: 100%;
@@ -44,7 +44,7 @@ const Post = (props) => {
   const x = props.id;
 
   function favPost() {
-    warehouse.push(x);
+    if (!warehouse.includes(x)) warehouse.push(x);
     localStorage.setItem('names', JSON.stringify(warehouse));
     // @ts-ignore: Object is possibly 'null'.
     const tmp = JSON.parse(localStorage.getItem('names'));
@@ -55,7 +55,9 @@ const Post = (props) => {
   return (
     <StyledWrapper id={props.id}>
       <InnerWrapper activeColor>
-        <h4>{props.id}) {props.title}</h4>
+        <h4>
+          {props.id}) {props.title}
+        </h4>
         <ButtonIcon onClick={() => favPost()} className='favButton2' />
       </InnerWrapper>
       <InnerWrapper flex>
