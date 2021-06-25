@@ -26,7 +26,7 @@ const Favorites = () => {
       <HeaderDiv>
         <Input search placeholder='search' onChange={inputHandler} />
         <h2>Some Blog </h2>
-        <p>You can view {Tab != null ? Tab.length : 0} posts</p>
+        <p>You can view Favorites posts</p>
       </HeaderDiv>
       <BlogDiv>
         {status === 'loading' ? (

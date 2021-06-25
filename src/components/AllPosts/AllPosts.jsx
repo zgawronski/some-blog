@@ -74,7 +74,7 @@ const AllPosts = () => {
           breakClassName='break-me'
           pageCount={posts.length}
           marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
+          pageRangeDisplayed={3}
           onPageChange={handlePageClick}
           containerClassName='pagination'
           activeClassName='active'

@@ -9,7 +9,6 @@ import allposts from 'assets/icons/allposts.png';
 const BarWrapper = styled.nav`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   position: fixed;
   left: 0;
@@ -30,7 +29,6 @@ const BarWrapper = styled.nav`
 `;
 
 const StyledLinksList = styled.ul`
-  justify-content: space-between;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -54,8 +52,6 @@ const LogoutButton = styled.div`
   }
 `;
 
-
-// eslint-disable-next-line react/prefer-stateless-function
 const Sidebar = () => (
   <BarWrapper>
     <p className='imgP'>Some Blog</p>
@@ -68,7 +64,6 @@ const Sidebar = () => (
           <ButtonIcon />
         </Link>
       </li>
-
       <li>
         <Link to='/AllPosts'>
           <ButtonIcon className='allposts' />
@@ -81,7 +76,6 @@ const Sidebar = () => (
       </Link>
     </LogoutButton>
   </BarWrapper>
-)
-
+);
 
 export default Sidebar;

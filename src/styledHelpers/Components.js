@@ -13,7 +13,6 @@ export const Wrapper = styled.div`
   ${boxShadow()};
 `;
 
-
 export const HeadWrapper = styled.div`
   margin-right: 50px;
   margin-top: 30px;
