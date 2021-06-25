@@ -40,6 +40,7 @@ const StyledWrapper = styled(Wrapper)`
 const InnerWrapper = styled.div`
   padding: 17px 30px;
   background-color: ${({ activeColor }) => (activeColor ? Colors.primary : Colors.white)};
+
   h3 {
     margin: 0;
   }

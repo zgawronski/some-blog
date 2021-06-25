@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         padding-left: 200px;
         font-family: 'Montserrat', sans-serif;
-        color: ${Colors.white}
+        color: ${Colors.white};
     }
 `;
 

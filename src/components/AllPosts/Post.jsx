@@ -19,7 +19,6 @@ const StyledWrapper = styled(Wrapper)`
 const InnerWrapper = styled.div`
   padding: 15px 15px;
   background-color: ${({ activeColor }) => (activeColor ? Colors.primary : Colors.white)};
-  margin-bottom: 0;
   h4 {
     margin: 0;
   }
