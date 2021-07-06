@@ -58,7 +58,8 @@ const AllPosts = () => {
     setInputText(text);
   };
 
-  const currentPosts = posts.slice(currentPage, currentPage + 10);
+  const currentPosts = posts.slice(currentPage * 10, currentPage * 10 + 10);
+
   return (
     <HeadWrapper>
       <HeaderDiv>
@@ -72,7 +73,7 @@ const AllPosts = () => {
           nextLabel='NEXT'
           breakLabel='...'
           breakClassName='break-me'
-          pageCount={posts.length}
+          pageCount={posts.length / 10}
           marginPagesDisplayed={2}
           pageRangeDisplayed={3}
           onPageChange={handlePageClick}

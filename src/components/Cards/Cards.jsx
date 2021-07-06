@@ -75,7 +75,7 @@ const Cards = (props) => {
   const [title, setTitle] = useState(`${props.title.slice(0, 15)}...`);
   // const [smaller, setSmaller]=useState(true);
 
-  function changeSize() {
+  const changeSize = () => {
     if (!xl) {
       setXl(true);
       setCut(props.description);
@@ -87,10 +87,10 @@ const Cards = (props) => {
       setText('Read More...');
       setTitle(`${props.title.slice(0, 15)}...`);
     }
-  }
+  };
   const x = props.id;
   const chk = JSON.parse(localStorage.getItem('names'));
-  function favPost() {
+  const favPost = () => {
     if (!warehouse.includes(x)) warehouse.push(x);
     if (chk == null) {
       localStorage.setItem('names', JSON.stringify(warehouse));
@@ -103,7 +103,7 @@ const Cards = (props) => {
       tmp.push(x);
       localStorage.setItem('names', JSON.stringify(tmp));
     }
-  }
+  };
 
   return (
     <StyledWrapper id={props.id} bigger={xl} smaller={!xl}>
