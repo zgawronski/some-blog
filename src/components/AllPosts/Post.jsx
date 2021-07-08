@@ -42,14 +42,14 @@ const InnerWrapper = styled.div`
 const Post = (props) => {
   const x = props.id;
 
-  function favPost() {
+  const favPost = () => {
     if (!warehouse.includes(x)) warehouse.push(x);
     localStorage.setItem('names', JSON.stringify(warehouse));
     // @ts-ignore: Object is possibly 'null'.
     const tmp = JSON.parse(localStorage.getItem('names'));
     localStorage.setItem('names', JSON.stringify(tmp));
     tmp.push(x);
-  }
+  };
 
   return (
     <StyledWrapper id={props.id}>
