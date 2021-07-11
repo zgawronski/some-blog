@@ -35,4 +35,5 @@ const MainPage = () => (
   </Router>
 );
 
+
 export default MainPage;

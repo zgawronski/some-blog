@@ -10,9 +10,9 @@ import { HeadWrapper, BlogDiv, HeaderDiv } from 'styledHelpers/Components';
 
 import usePosts from 'components/Cards/usePosts';
 
-const Tab = JSON.parse(localStorage.getItem('names'));
 
 const Favorites = () => {
+  const Tab = JSON.parse(localStorage.getItem('names'));
   const { status, posts } = usePosts();
   const [inputText, setInputText] = useState('');
 
