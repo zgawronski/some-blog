@@ -4,15 +4,17 @@ import FontSize from 'styledHelpers/FontSize';
 
 const Button = styled.button`
   background-color: ${Colors.primary};
-  width: 220px;
-  height: 47px;
+  color: ${Colors.white};
+  width: 160px;
+  height: 30px;
   border: none;
   border-radius: 50px;
-  font-weight: 500;
-  font-size: ${FontSize[16]};
+  font-size: ${FontSize[10]};
+  font-weight: bold;
   text-transform: uppercase;
   :active {
     background-color: ${Colors.white};
+    color: ${Colors.primary};
     border: 1px solid ${Colors.buttonSecondary};
   }
 

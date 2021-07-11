@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import Button from 'styledHelpers/Button';
@@ -31,7 +31,7 @@ const StyledWrapper = styled(Wrapper)`
       width: 900px;
       height: 500px;
       transition: 500ms;
-      position: absolute;
+      position: relative;
       top: 10%;
       left: 20%;
       z-index: 1000;
@@ -52,6 +52,11 @@ const InnerWrapper = styled.div`
     position: absolute;
     right: 5%;
     top: 10%;
+  }
+  .comment {
+    position: absolute;
+    right: -20px;
+    bottom: 17px;
   }
 
   ${({ flex }) =>
@@ -74,6 +79,32 @@ const Cards = (props) => {
   const [text, setText] = useState('Read More...');
   const [title, setTitle] = useState(`${props.title.slice(0, 15)}...`);
   // const [smaller, setSmaller]=useState(true);
+
+  const [comment, setComment] = useState();
+  const [addComment, setAddComment] = useState(false);
+
+  useEffect(() => {
+    setComment();
+    setAddComment(false);
+  }, [])
+
+  const commentBtn = (event) => {
+    const ev = (event.target).id;
+    if (ev === 'addCom')
+    // eslint-disable-next-line no-unused-expressions
+    addComment ? setAddComment(false) : setAddComment(true);
+  }
+
+  const addInput = (event) => {
+    switch (type) {
+      case 'comment':
+        setComment(event.target.value);
+        break;
+      default:
+       // eslint-disable-next-line no-console
+       console.log("has no change");
+    }
+  }
 
   const changeSize = () => {
     if (!xl) {
@@ -105,6 +136,7 @@ const Cards = (props) => {
     }
   };
 
+
   return (
     <StyledWrapper id={props.id} bigger={xl} smaller={!xl}>
       <InnerWrapper activeColor>
@@ -115,9 +147,14 @@ const Cards = (props) => {
       </InnerWrapper>
       <InnerWrapper flex>
         <p>{cut}</p>
+      {addComment !== true ?
+      <p key={props.id}>{comment}</p> :
+      <input key={props.id} value={comment} type='text' onChange={(event) => addInput(event, 'comment')} />
+      }
         <Button onClick={() => changeSize()} secondary>
           {text}
         </Button>
+        <Button id='addCom' onClick={(ev) => commentBtn(ev)} className="comment">Add Comment</Button>
       </InnerWrapper>
     </StyledWrapper>
   );
