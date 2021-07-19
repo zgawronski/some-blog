@@ -86,25 +86,25 @@ const Cards = (props) => {
   useEffect(() => {
     setComment();
     setAddComment(false);
-  }, [])
+  }, []);
 
   const commentBtn = (event) => {
-    const ev = (event.target).id;
+    const ev = event.target.id;
     if (ev === 'addCom')
-    // eslint-disable-next-line no-unused-expressions
-    addComment ? setAddComment(false) : setAddComment(true);
-  }
+      // eslint-disable-next-line no-unused-expressions
+      addComment ? setAddComment(false) : setAddComment(true);
+  };
 
-  const addInput = (event) => {
-    switch (type) {
+  const addInput = (event, className) => {
+    switch (className) {
       case 'comment':
         setComment(event.target.value);
         break;
       default:
-       // eslint-disable-next-line no-console
-       console.log("has no change");
+        // eslint-disable-next-line no-console
+        console.log('has no change');
     }
-  }
+  };
 
   const changeSize = () => {
     if (!xl) {
@@ -136,7 +136,6 @@ const Cards = (props) => {
     }
   };
 
-
   return (
     <StyledWrapper id={props.id} bigger={xl} smaller={!xl}>
       <InnerWrapper activeColor>
@@ -147,14 +146,17 @@ const Cards = (props) => {
       </InnerWrapper>
       <InnerWrapper flex>
         <p>{cut}</p>
-      {addComment !== true ?
-      <p key={props.id}>{comment}</p> :
-      <input key={props.id} value={comment} type='text' onChange={(event) => addInput(event, 'comment')} />
-      }
+        {addComment !== true ? (
+          <p key={props.id}>{comment}</p>
+        ) : (
+          <input key={props.id} type='text' onChange={(event) => addInput(event, 'comment')} />
+        )}
         <Button onClick={() => changeSize()} secondary>
           {text}
         </Button>
-        <Button id='addCom' onClick={(ev) => commentBtn(ev)} className="comment">Add Comment</Button>
+        <Button id='addCom' onClick={(ev) => commentBtn(ev)} className='comment'>
+          Add Comment
+        </Button>
       </InnerWrapper>
     </StyledWrapper>
   );
