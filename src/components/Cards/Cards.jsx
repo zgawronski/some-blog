@@ -33,7 +33,7 @@ const StyledWrapper = styled(Wrapper)`
       position: relative;
       top: 10%;
       left: 20%;
-      z-index: 1000;
+      z-index: 1;
     `}
 `;
 const InnerWrapper = styled.div`
@@ -57,6 +57,9 @@ const InnerWrapper = styled.div`
     right: -20px;
     bottom: 17px;
   }
+  .hide {
+    opacity: 0;
+  }
 
   ${({ flex }) =>
     flex &&
@@ -71,6 +74,7 @@ const InnerWrapper = styled.div`
 `;
 
 export const warehouse = [];
+export const commentStorage = [];
 
 const Cards = (props) => {
   const [xl, setXl] = useState(false);
@@ -87,17 +91,22 @@ const Cards = (props) => {
     setAddComment(false);
   }, []);
 
+  // const comchk = JSON.parse(localStorage.getItem('comments'));
   const commentBtn = (event) => {
     const ev = event.target.id;
-    if (ev === 'addCom')
+    if (ev === 'addCom') {
       // eslint-disable-next-line no-unused-expressions
-      addComment ? setAddComment(false) : setAddComment(true);
+      addComment ? (setAddComment(false), commentStorage.push(comment)) : setAddComment(true);
+      console.log(commentStorage);
+    }
+    localStorage.setItem('comments', JSON.stringify(commentStorage));
   };
 
   const addInput = (event, className) => {
+    const a = event.target.value;
     switch (className) {
       case 'comment':
-        setComment(event.target.value);
+        setComment(a);
         break;
       default:
         // eslint-disable-next-line no-console
@@ -118,6 +127,7 @@ const Cards = (props) => {
       setTitle(`${props.title.slice(0, 15)}...`);
     }
   };
+
   const x = props.id;
   const chk = JSON.parse(localStorage.getItem('names'));
   const favPost = () => {
@@ -146,7 +156,9 @@ const Cards = (props) => {
       <InnerWrapper flex>
         <p>{cut}</p>
         {addComment !== true ? (
-          <p key={props.id}>{comment}</p>
+          <p key={props.id}>
+            Your Comment: <q>{comment}</q>
+          </p>
         ) : (
           <input key={props.id} type='text' onChange={(event) => addInput(event, 'comment')} />
         )}
