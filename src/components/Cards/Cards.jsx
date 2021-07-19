@@ -8,7 +8,6 @@ import Button from 'styledHelpers/Button';
 import ButtonIcon from 'styledHelpers/ButtonIcon';
 import { Wrapper } from 'styledHelpers/Components';
 import Colors from 'styledHelpers/Colors';
-// import { warehouse } from 'tools/warehouse';
 
 const StyledWrapper = styled(Wrapper)`
   height: 200px;
