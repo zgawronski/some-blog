@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import FontSize from 'styledHelpers/FontSize';
-import Colors from 'styledHelpers/Colors';
+import FontSize from 'assets/styles/FontSize';
+import Colors from 'assets/styles/Colors';
 import searchIco from 'assets/icons/searchIco.svg';
 
 const Input = styled.input`

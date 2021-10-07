@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import ButtonIcon from 'styledHelpers/ButtonIcon';
-import Colors from 'styledHelpers/Colors';
+import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
+import Colors from 'assets/styles/Colors';
 import logout from 'assets/icons/logout.png';
 import allposts from 'assets/icons/allposts.png';
 

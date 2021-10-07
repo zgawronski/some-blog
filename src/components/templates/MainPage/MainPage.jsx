@@ -1,14 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import GlobalStyle from 'styledHelpers/GlobalStyle';
+import GlobalStyle from 'assets/styles/GlobalStyle';
 import styled from 'styled-components';
-import Sidebar from 'components/Sidebar/Sidebar';
-// eslint-disable-next-line import/no-cycle
-import Blog from 'components/Blog/Blog';
-import Logout from 'components/Logout/Logout';
-import AllPosts from 'components/AllPosts/AllPosts';
-import Favorites from 'components/Favorites/Favorites';
+import Sidebar from 'components/organisms/Sidebar/Sidebar';
+import Blog from 'components/organisms/Blog/Blog';
+import Logout from 'components/organisms/Logout/Logout';
+import AllPosts from 'components/organisms/AllPosts/AllPosts';
+import Favorites from 'components/organisms/Favorites/Favorites';
 
 const MainDiv = styled.div``;
 
@@ -34,6 +33,5 @@ const MainPage = () => (
     </MainDiv>
   </Router>
 );
-
 
 export default MainPage;

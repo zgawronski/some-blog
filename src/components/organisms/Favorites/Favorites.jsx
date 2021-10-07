@@ -1,15 +1,10 @@
-/* eslint-disable consistent-return */
-/* eslint-disable array-callback-return */
-/* eslint-disable no-undef */
-
 import React, { useState } from 'react';
 
-import Cards from 'components/Cards/Cards';
-import Input from 'styledHelpers/Input';
-import { HeadWrapper, BlogDiv, HeaderDiv } from 'styledHelpers/Components';
+import Cards from 'components/molecules/Cards/Cards';
+import Input from 'components/atoms/Input/Input';
+import { HeadWrapper, BlogDiv, HeaderDiv } from 'assets/styles/Components';
 
-import usePosts from 'components/Cards/usePosts';
-
+import usePosts from 'hooks/usePosts.js/usePosts';
 
 const Favorites = () => {
   const Tab = JSON.parse(localStorage.getItem('names'));

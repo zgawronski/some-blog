@@ -1,46 +1,12 @@
 import React, { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 
-import Post from 'components/AllPosts/Post';
-import Input from 'styledHelpers/Input';
-import Colors from 'styledHelpers/Colors';
-import styled from 'styled-components';
-import { HeadWrapper, HeaderDiv } from 'styledHelpers/Components';
+import Post from 'components/molecules/Post/Post';
+import Input from 'components/atoms/Input/Input';
+import { BlogDiv2 } from './AllPosts.styles';
+import { HeadWrapper, HeaderDiv } from 'assets/styles/Components';
 
-import usePosts from 'components/Cards/usePosts';
-
-const BlogDiv2 = styled.div`
-  padding: 10px;
-  div {
-    margin-bottom: 20px;
-  }
-  .pagination {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    color: ${Colors.primary};
-    cursor: pointer;
-    margin-top: 0;
-    background-color: ${Colors.white};
-    list-style-type: none;
-    .active {
-      color: ${Colors.black};
-      padding: 5px;
-    }
-    .break-me {
-      padding: 5px;
-    }
-    .page {
-      padding: 5px;
-    }
-    .next {
-      padding: 5px;
-    }
-    .previous {
-      padding: 5px;
-    }
-  }
-`;
+import usePosts from 'hooks/usePosts.js/usePosts';
 
 const AllPosts = () => {
   const { status, posts } = usePosts();

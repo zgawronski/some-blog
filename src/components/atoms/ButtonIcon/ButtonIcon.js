@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import favorite from 'assets/icons/favorite.png';
-import Colors from 'styledHelpers/Colors';
+import Colors from 'assets/styles/Colors';
 
 const ButtonIcon = styled.button`
   display: block;

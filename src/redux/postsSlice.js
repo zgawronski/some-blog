@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
-import useApiClient from 'tools/useApiClient';
+import useApiClient from 'hooks/useApiClient/useApiClient';
 
 import initialState from 'redux/initialState';
 

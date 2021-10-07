@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import Colors from 'styledHelpers/Colors';
-import FontSize from 'styledHelpers/FontSize';
+import Colors from 'assets/styles/Colors';
+import FontSize from 'assets/styles/FontSize';
 
 const Button = styled.button`
   background-color: ${Colors.primary};
